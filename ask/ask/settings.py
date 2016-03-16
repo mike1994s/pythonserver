@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-#BASE_DIR = os.path.dirname(BASE_DIR)
+#PUBLIC_DIR = os.path.dirname(BASE_DIR)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
@@ -37,7 +37,9 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
    
-     'qa'
+     'qa',
+     'autofixture',
+#     'twitter_bootstrap',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -64,7 +66,7 @@ DATABASES = {
  #   }
       'default': {
         'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'ask',
+        'NAME': 'ask_question',
         'USER': 'root',
         'PASSWORD': '123123',
         'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
@@ -89,10 +91,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL ='/public/'
 TEMPLATE_DIRS = (
 	BASE_DIR + '/templates',
 )
 STATIC_ROOT = BASE_DIR + '/static'
 print "base dir path", BASE_DIR
+print "static path", STATIC_URL
 print "template dir path", TEMPLATE_DIRS

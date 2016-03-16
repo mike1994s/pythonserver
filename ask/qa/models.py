@@ -7,7 +7,7 @@ class Question(models.Model):
 	added_at = models.DateField()
 	rating = models.IntegerField()
 	author = models.OneToOneField(User)
-	likes  = models.ForeignKey(User,related_name='likes', null=True, on_delete=models.CASCADE)
+	likes  = models.ManyToManyField(User, related_name='likes_set')
 	def __unicode__(self):
 		return self.title
 	class Meta:
@@ -16,7 +16,7 @@ class Question(models.Model):
 class Answer(models.Model):
 	text = models.TextField()
 	added_at = models.DateField()
-	question = models.OneToOneField(Question,related_name='question')
+	question =  models.ForeignKey(Question,related_name='question')
 	author = models.OneToOneField(User)
 	def __unicode__(self):
 		return self.text
