@@ -16,11 +16,13 @@ def question(request, *args, **kwargs):
     try:
         key = int(args[0])
         print key
-        question=Question.objects.get(pk=key)        
+        question=Question.objects.get(pk=key)
+        ans = Answer.objects.filter(question_id=key)        
     except ValueError, Question.DoesNotExist:
         return HttpResponseNotFound('<h1>No Page Here</h1>')  
     return render(request, 'qa/one_question.html', {
         'q':question,
+         'a':ans,
     })
 def page(request):
     numPage = request.GET.get('page')

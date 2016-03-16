@@ -112,3 +112,8 @@
 127.0.0.1 - - [16/Mar/2016:17:48:23 +0000] "GET / HTTP/1.1" 200 2244 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36"
 127.0.0.1 - - [16/Mar/2016:17:48:26 +0000] "GET /question/12 HTTP/1.1" 301 - "http://0.0.0.0:8000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36"
 127.0.0.1 - - [16/Mar/2016:17:48:26 +0000] "GET /question/12/ HTTP/1.1" 200 2069 "http://0.0.0.0:8000/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36"
+"127.0.0.1 - - [16/Mar/2016:19:19:28] "GET / HTTP/1.0" 200 - "-" "Python-urllib/2.7"
+"127.0.0.1 - - [16/Mar/2016:19:19:28] "GET /?page=2 HTTP/1.0" 200 - "-" "Python-urllib/2.7"
+"127.0.0.1 - - [16/Mar/2016:19:19:28] "GET /popular/?page=2 HTTP/1.0" 200 - "-" "Python-urllib/2.7"
+"127.0.0.1 - - [16/Mar/2016:19:19:28] "GET /question/3141592/ HTTP/1.0" 200 - "-" "Python-urllib/2.7"
+"127.0.0.1 - - [16/Mar/2016:19:35:15] "GET /question/3141592/ HTTP/1.0" 200 - "-" "curl/7.35.0"
