@@ -8,7 +8,8 @@ from django.shortcuts import render, get_object_or_404
 from django.views.decorators.http import require_GET
 
 from django.http import Http404
-from django.core.paginator import Paginator
+
+from django.core.paginator import Paginator, EmptyPage
 from django.http import HttpResponseNotFound
 def test(request, *args, **kwargs):
     return HttpResponse('OK')

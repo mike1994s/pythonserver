@@ -321,3 +321,17 @@ template dir path ('/home/box/web/ask/templates',)
 2016-03-16 19:22:14 [769] [CRITICAL] WORKER TIMEOUT (pid:774)
 2016-03-16 19:22:15 [769] [CRITICAL] WORKER TIMEOUT (pid:774)
 2016-03-16 19:22:15 [778] [INFO] Booting worker with pid: 778
+[2016-03-18 11:40:23 +0000] [29340] [INFO] Starting gunicorn 19.4.5
+[2016-03-18 11:40:23 +0000] [29340] [INFO] Listening at: http://0.0.0.0:8000 (29340)
+[2016-03-18 11:40:23 +0000] [29340] [INFO] Using worker: sync
+[2016-03-18 11:40:23 +0000] [29349] [INFO] Booting worker with pid: 29349
+[2016-03-18 11:45:20 +0000] [29340] [INFO] Handling signal: int
+[2016-03-18 07:45:20 +0000] [29349] [INFO] Worker exiting (pid: 29349)
+[2016-03-18 11:45:20 +0000] [29340] [INFO] Shutting down: Master
+[2016-03-18 11:47:47 +0000] [30300] [INFO] Starting gunicorn 19.4.5
+[2016-03-18 11:47:47 +0000] [30300] [INFO] Listening at: http://0.0.0.0:8000 (30300)
+[2016-03-18 11:47:47 +0000] [30300] [INFO] Using worker: sync
+[2016-03-18 11:47:47 +0000] [30305] [INFO] Booting worker with pid: 30305
+[2016-03-18 11:55:41 +0000] [30300] [INFO] Handling signal: int
+[2016-03-18 07:55:41 +0000] [30305] [INFO] Worker exiting (pid: 30305)
+[2016-03-18 11:55:41 +0000] [30300] [INFO] Shutting down: Master
