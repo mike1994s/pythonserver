@@ -5,25 +5,60 @@ from django.shortcuts import render, get_object_or_404
 from django.views.decorators.http import require_GET
 from qa.models import Question, Answer
 from django.shortcuts import render, get_object_or_404
-from django.views.decorators.http import require_GET
+from django.views.decorators.http import require_GET, require_POST
+
 
 from django.http import Http404
 
 from django.core.paginator import Paginator, EmptyPage
 from django.http import HttpResponseNotFound
+from qa.forms import AskForm, AnswerForm
+from django.http import HttpResponseRedirect
 def test(request, *args, **kwargs):
     return HttpResponse('OK')
+
+from django.views.decorators.http import require_http_methods
+
+@require_POST
+def answer(request):
+	if request.method == "POST":
+		form  = AnswerForm(request.POST)
+		if form.is_valid():
+			ans = form.save()
+			url = ans.get_url()
+			return HttpResponseRedirect(url)
+	return HttpResponseRedirect("/")
+def ask(request):
+	if request.method == "POST":
+		form = AskForm(request.POST)
+		if form.is_valid():
+			post = form.save()
+			print post
+			url = post.get_url()
+			print url
+			return HttpResponseRedirect(url)
+	else:
+			form = AskForm()
+	return render(request, 'qa/form.html', {
+		'form': form
+})
+
 def question(request, *args, **kwargs):
     try:
         key = int(args[0])
         print key
         question=Question.objects.get(pk=key)
+  	print question
         ans = Answer.objects.filter(question_id=key)        
+        form = AnswerForm(initial={'question':key})
     except ValueError, Question.DoesNotExist:
-        return HttpResponseNotFound('<h1>No Page Here</h1>')  
+        return HttpResponseNotFound('<h1>No Page Here</h1>') 
+ 
+ 
     return render(request, 'qa/one_question.html', {
         'q':question,
          'a':ans,
+         'form':form,
     })
 def page(request):
     numPage = request.GET.get('page')

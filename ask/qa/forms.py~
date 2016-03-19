@@ -1,0 +1,26 @@
+from django import forms
+from qa.models import Question
+class AskForm(forms.Form):
+	title = forms.CharField(max_length=255)
+	text = forms.CharField(widget=forms.Textarea) 
+	
+	def clean_title(self):
+		title = self.cleaned_data['title']
+		return title + \
+			"\n Thank you!"
+	def clean_text(self):
+		text = self.cleaned_data['text']
+		return text + \
+			"\n Thank you!"
+	def save(self):
+		ask = qa.models.Question(**self.cleaned_data)
+		ask.save()
+		return ask
+class AnswerForm(forms.Form):
+	text = forms.CharField(widget=forms.Textarea) 
+	question = forms.IntegerField() 
+	def save(self):
+		ask = Answer(**self.cleaned_data)
+		ask.save()
+		return ask
+		

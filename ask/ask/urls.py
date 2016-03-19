@@ -10,8 +10,10 @@ urlpatterns = patterns('',
     url(r'^login/', 'qa.views.test'),
     url(r'^signup/', 'qa.views.test'),
     url(r'^question/(\d+)/$', 'qa.views.question'),
-    url(r'^ask/$', 'qa.views.test'),
-    url(r'^new/$', 'qa.views.test'),  
+    url(r'^ask/$', 'qa.views.ask'),
+    url(r'^new/$', 'qa.views.test'), 
+    url(r'^answer/$', 'qa.views.answer'), 
+     
    # url(r'^test/$', include('qa.urls')),  
 	
 )

@@ -66,7 +66,7 @@ DATABASES = {
  #   }
       'default': {
         'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'ask_quest',
+        'NAME': 'ask_quest_te',
         'USER': 'root',
         'PASSWORD': '123123',
         'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
