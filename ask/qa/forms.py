@@ -60,6 +60,7 @@ class LoginForm(forms.Form):
 		_user = authenticate(username=self.cleaned_data['username'], password=self.cleaned_data['password'])
     		if _user is not None:
         		if _user.is_active:
+        			login(request, _user)
  				return
         		else:
 				raise forms.ValidationError(
@@ -71,6 +72,4 @@ class LoginForm(forms.Form):
 				'incorrect login or password',
 				code='invalid'
 			)
-	def login(self, request):
-            	login(request, _user)
 		
