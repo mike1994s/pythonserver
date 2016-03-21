@@ -19,7 +19,7 @@ class AskForm(forms.Form):
 		new_qs = Question(
 				text=self.cleaned_data['text'], 
 				title=self.cleaned_data['title'],
-				author=_user
+				author=self._user
 		)
 		new_qs.save()			
 		return new_qs
@@ -33,7 +33,7 @@ class AnswerForm(forms.Form):
 		
 		answer = Answer(text = self.cleaned_data['text'],
 				question=Question.objects.get(pk=self.cleaned_data['question']),
-		author=_user)
+		author=self._user)
 		answer.save()
 		return answer
 

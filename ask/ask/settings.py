@@ -38,7 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
    
      'qa',
-     'autofixture',
+#     'autofixture',
 #     'twitter_bootstrap',
 )
 
@@ -66,7 +66,7 @@ DATABASES = {
  #   }
       'default': {
         'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'ask_quest_te',
+        'NAME': 'ask_',
         'USER': 'root',
         'PASSWORD': '123123',
         'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
