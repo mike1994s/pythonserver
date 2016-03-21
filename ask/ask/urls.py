@@ -13,6 +13,7 @@ urlpatterns = patterns('',
     url(r'^ask/$', 'qa.views.ask'),
     url(r'^new/$', 'qa.views.test'), 
     url(r'^answer/$', 'qa.views.answer'), 
+    url(r'^logout/$', 'qa.views.user_logout'), 
      
    # url(r'^test/$', include('qa.urls')),  
 	

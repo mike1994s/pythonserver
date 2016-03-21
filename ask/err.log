@@ -860,3 +860,66 @@ template dir path ('/home/box/web/ask/templates',)
 [2016-03-21 20:10:28 +0000] [27749] [INFO] Handling signal: int
 [2016-03-21 16:10:29 +0000] [27754] [INFO] Worker exiting (pid: 27754)
 [2016-03-21 20:10:29 +0000] [27749] [INFO] Shutting down: Master
+[2016-03-22 02:27:58 +0000] [13888] [INFO] Starting gunicorn 19.4.5
+[2016-03-22 02:27:58 +0000] [13888] [INFO] Listening at: http://0.0.0.0:8000 (13888)
+[2016-03-22 02:27:58 +0000] [13888] [INFO] Using worker: sync
+[2016-03-22 02:27:58 +0000] [13893] [INFO] Booting worker with pid: 13893
+[2016-03-22 02:28:18 +0000] [13888] [INFO] Handling signal: int
+[2016-03-21 22:28:18 +0000] [13893] [INFO] Worker exiting (pid: 13893)
+[2016-03-22 02:28:18 +0000] [13888] [INFO] Shutting down: Master
+[2016-03-22 02:30:40 +0000] [17273] [INFO] Starting gunicorn 19.4.5
+[2016-03-22 02:30:40 +0000] [17273] [INFO] Listening at: http://0.0.0.0:8000 (17273)
+[2016-03-22 02:30:40 +0000] [17273] [INFO] Using worker: sync
+[2016-03-22 02:30:40 +0000] [17278] [INFO] Booting worker with pid: 17278
+[2016-03-22 02:31:02 +0000] [17273] [INFO] Handling signal: int
+[2016-03-21 22:31:02 +0000] [17278] [INFO] Worker exiting (pid: 17278)
+[2016-03-22 02:31:02 +0000] [17273] [INFO] Shutting down: Master
+[2016-03-22 02:31:15 +0000] [18129] [INFO] Starting gunicorn 19.4.5
+[2016-03-22 02:31:15 +0000] [18129] [INFO] Listening at: http://0.0.0.0:8000 (18129)
+[2016-03-22 02:31:15 +0000] [18129] [INFO] Using worker: sync
+[2016-03-22 02:31:15 +0000] [18134] [INFO] Booting worker with pid: 18134
+[2016-03-22 02:31:23 +0000] [18129] [INFO] Handling signal: int
+[2016-03-21 22:31:23 +0000] [18134] [INFO] Worker exiting (pid: 18134)
+[2016-03-22 02:31:23 +0000] [18129] [INFO] Shutting down: Master
+[2016-03-22 02:32:04 +0000] [19365] [INFO] Starting gunicorn 19.4.5
+[2016-03-22 02:32:04 +0000] [19365] [INFO] Listening at: http://0.0.0.0:8000 (19365)
+[2016-03-22 02:32:04 +0000] [19365] [INFO] Using worker: sync
+[2016-03-22 02:32:04 +0000] [19370] [INFO] Booting worker with pid: 19370
+[2016-03-22 02:32:38 +0000] [19365] [INFO] Handling signal: int
+[2016-03-21 22:32:38 +0000] [19370] [INFO] Worker exiting (pid: 19370)
+[2016-03-22 02:32:38 +0000] [19365] [INFO] Shutting down: Master
+[2016-03-22 02:32:49 +0000] [20157] [INFO] Starting gunicorn 19.4.5
+[2016-03-22 02:32:49 +0000] [20157] [INFO] Listening at: http://0.0.0.0:8000 (20157)
+[2016-03-22 02:32:49 +0000] [20157] [INFO] Using worker: sync
+[2016-03-22 02:32:49 +0000] [20162] [INFO] Booting worker with pid: 20162
+[2016-03-22 02:33:25 +0000] [20157] [INFO] Handling signal: int
+[2016-03-21 22:33:25 +0000] [20162] [INFO] Worker exiting (pid: 20162)
+[2016-03-22 02:33:25 +0000] [20157] [INFO] Shutting down: Master
+[2016-03-22 02:34:06 +0000] [21755] [INFO] Starting gunicorn 19.4.5
+[2016-03-22 02:34:06 +0000] [21755] [INFO] Listening at: http://0.0.0.0:8000 (21755)
+[2016-03-22 02:34:06 +0000] [21755] [INFO] Using worker: sync
+[2016-03-22 02:34:06 +0000] [21760] [INFO] Booting worker with pid: 21760
+[2016-03-22 02:34:15 +0000] [21755] [INFO] Handling signal: int
+[2016-03-21 22:34:15 +0000] [21760] [INFO] Worker exiting (pid: 21760)
+[2016-03-22 02:34:15 +0000] [21755] [INFO] Shutting down: Master
+[2016-03-22 02:34:35 +0000] [22168] [INFO] Starting gunicorn 19.4.5
+[2016-03-22 02:34:35 +0000] [22168] [INFO] Listening at: http://0.0.0.0:8000 (22168)
+[2016-03-22 02:34:35 +0000] [22168] [INFO] Using worker: sync
+[2016-03-22 02:34:35 +0000] [22173] [INFO] Booting worker with pid: 22173
+[2016-03-22 02:35:38 +0000] [22168] [INFO] Handling signal: int
+[2016-03-21 22:35:39 +0000] [22173] [INFO] Worker exiting (pid: 22173)
+[2016-03-22 02:35:39 +0000] [22168] [INFO] Shutting down: Master
+[2016-03-22 02:38:15 +0000] [26507] [INFO] Starting gunicorn 19.4.5
+[2016-03-22 02:38:15 +0000] [26507] [INFO] Listening at: http://0.0.0.0:8000 (26507)
+[2016-03-22 02:38:15 +0000] [26507] [INFO] Using worker: sync
+[2016-03-22 02:38:15 +0000] [26512] [INFO] Booting worker with pid: 26512
+[2016-03-22 02:39:11 +0000] [26507] [INFO] Handling signal: int
+[2016-03-21 22:39:11 +0000] [26512] [INFO] Worker exiting (pid: 26512)
+[2016-03-22 02:39:11 +0000] [26507] [INFO] Shutting down: Master
+[2016-03-22 02:39:38 +0000] [28423] [INFO] Starting gunicorn 19.4.5
+[2016-03-22 02:39:38 +0000] [28423] [INFO] Listening at: http://0.0.0.0:8000 (28423)
+[2016-03-22 02:39:38 +0000] [28423] [INFO] Using worker: sync
+[2016-03-22 02:39:38 +0000] [28428] [INFO] Booting worker with pid: 28428
+[2016-03-22 02:44:13 +0000] [28423] [INFO] Handling signal: int
+[2016-03-21 22:44:13 +0000] [28428] [INFO] Worker exiting (pid: 28428)
+[2016-03-22 02:44:13 +0000] [28423] [INFO] Shutting down: Master

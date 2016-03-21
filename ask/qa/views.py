@@ -4,13 +4,13 @@ from django.template import Context, loader
 from django.shortcuts import render, get_object_or_404
 from django.views.decorators.http import require_GET
 from qa.models import Question, Answer
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views.decorators.http import require_GET, require_POST
 
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 from django.http import Http404
 
@@ -23,6 +23,9 @@ def test(request, *args, **kwargs):
 
 from django.views.decorators.http import require_http_methods
 from django.contrib.auth.decorators import login_required
+def user_logout(request):
+    logout(request)
+    return redirect('/')
 @require_POST
 @login_required
 def answer(request):
@@ -43,6 +46,7 @@ def dolog(request):
 	if request.method == "POST":
                 form = LoginForm(request.POST)
                 if form.is_valid():
+			form.log(request)
                         return HttpResponseRedirect("/")
         else:
                         form = LoginForm()
@@ -57,7 +61,7 @@ def signup(request):
 	if request.method == "POST":
         	form = SignupForm(request.POST)
                 if form.is_valid():
-			new_user = form.save()
+			new_user = form.save(request)
                         return HttpResponseRedirect("/")
         else:
                         form = SignupForm()

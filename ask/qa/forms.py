@@ -42,13 +42,13 @@ class SignupForm(forms.Form):
 	email = forms.EmailField()
 	password = forms.CharField(widget=forms.PasswordInput)
 
-	def save(self):
+	def save(self, request):
 		new_user=User.objects.create_user(self.cleaned_data['username'],
                                   self.cleaned_data['email'],
                                   self.cleaned_data['password'])
 		new_user.save()
 		new_user = authenticate(username=self.cleaned_data['username'], password=self.cleaned_data['password'])
-		login(request,user) 
+		login(request,new_user) 
 		return new_user
 	
 class LoginForm(forms.Form):
@@ -57,10 +57,9 @@ class LoginForm(forms.Form):
 	_user = User;
 		
 	def clean(self):
-		_user = authenticate(username=self.cleaned_data['username'], password=self.cleaned_data['password'])
-    		if _user is not None:
-        		if _user.is_active:
-        			login(request, _user)
+		self._user = authenticate(username=self.cleaned_data['username'], password=self.cleaned_data['password'])
+    		if self._user is not None:
+        		if self._user.is_active:
  				return
         		else:
 				raise forms.ValidationError(
@@ -72,4 +71,5 @@ class LoginForm(forms.Form):
 				'incorrect login or password',
 				code='invalid'
 			)
-		
+	def log(self, req):
+		login(req, self._user)
