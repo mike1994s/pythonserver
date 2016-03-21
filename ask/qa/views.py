@@ -7,30 +7,68 @@ from qa.models import Question, Answer
 from django.shortcuts import render, get_object_or_404
 from django.views.decorators.http import require_GET, require_POST
 
+from django.contrib.auth import authenticate, login
 
 from django.http import Http404
 
 from django.core.paginator import Paginator, EmptyPage
 from django.http import HttpResponseNotFound
-from qa.forms import AskForm, AnswerForm
+from qa.forms import AskForm, AnswerForm, LoginForm, SignupForm
 from django.http import HttpResponseRedirect
 def test(request, *args, **kwargs):
     return HttpResponse('OK')
 
 from django.views.decorators.http import require_http_methods
-
+from django.contrib.auth.decorators import login_required
 @require_POST
+@login_required
 def answer(request):
 	if request.method == "POST":
 		form  = AnswerForm(request.POST)
+		form._user = request.user
 		if form.is_valid():
 			ans = form.save()
 			url = ans.get_url()
 			return HttpResponseRedirect(url)
 	return HttpResponseRedirect("/")
+
+def dolog(request):
+	user = request.user
+	if user.is_authenticated():
+		return HttpResponseRedirect("/")
+
+	if request.method == "POST":
+                form = LoginForm(request.POST)
+                if form.is_valid():
+			form.login(request)
+                        return HttpResponseRedirect("/")
+        else:
+                        form = LoginForm()
+        return render(request, 'qa/formlogin.html', {
+                'form': form
+})
+
+def signup(request):
+	user = request.user
+        if user.is_authenticated():
+                return HttpResponseRedirect("/")
+	if request.method == "POST":
+        	form = SignupForm(request.POST)
+                if form.is_valid():
+			new_user = form.save()
+			form.login(new_user, request)
+                        return HttpResponseRedirect("/")
+        else:
+                        form = SignupForm()
+        return render(request, 'qa/formsignup.html', {
+                'form': form
+})
+
+@login_required
 def ask(request):
 	if request.method == "POST":
 		form = AskForm(request.POST)
+		form._user = request.user
 		if form.is_valid():
 			post = form.save()
 			print post
