@@ -48,9 +48,9 @@ class SignupForm(forms.Form):
                                   self.cleaned_data['password'])
 		new_user.save()
 		new_user = authenticate(username=self.cleaned_data['username'], password=self.cleaned_data['password'])
+		login(request,user) 
 		return new_user
-	def login(self,user, request):
-		login(request,user) 	
+	
 class LoginForm(forms.Form):
 	username = forms.CharField()
 	password = forms.CharField(widget=forms.PasswordInput)
