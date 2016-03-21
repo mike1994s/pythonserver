@@ -8,6 +8,9 @@ from django.shortcuts import render, get_object_or_404
 from django.views.decorators.http import require_GET, require_POST
 
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.models import User
+
+from django.contrib.auth import authenticate, login
 
 from django.http import Http404
 
@@ -40,7 +43,6 @@ def dolog(request):
 	if request.method == "POST":
                 form = LoginForm(request.POST)
                 if form.is_valid():
-			form.login(request)
                         return HttpResponseRedirect("/")
         else:
                         form = LoginForm()
@@ -56,7 +58,6 @@ def signup(request):
         	form = SignupForm(request.POST)
                 if form.is_valid():
 			new_user = form.save()
-			form.login(new_user, request)
                         return HttpResponseRedirect("/")
         else:
                         form = SignupForm()
