@@ -1171,3 +1171,10 @@ template dir path ('/home/box/web/ask/templates',)
 [2016-03-26 17:36:29 +0000] [11296] [INFO] Handling signal: int
 [2016-03-26 13:36:29 +0000] [11301] [INFO] Worker exiting (pid: 11301)
 [2016-03-26 17:36:29 +0000] [11296] [INFO] Shutting down: Master
+[2016-03-26 17:37:34 +0000] [12351] [INFO] Starting gunicorn 19.4.5
+[2016-03-26 17:37:34 +0000] [12351] [INFO] Listening at: http://0.0.0.0:8000 (12351)
+[2016-03-26 17:37:34 +0000] [12351] [INFO] Using worker: sync
+[2016-03-26 17:37:34 +0000] [12356] [INFO] Booting worker with pid: 12356
+[2016-03-26 17:38:18 +0000] [12351] [INFO] Handling signal: int
+[2016-03-26 13:38:18 +0000] [12356] [INFO] Worker exiting (pid: 12356)
+[2016-03-26 17:38:18 +0000] [12351] [INFO] Shutting down: Master
