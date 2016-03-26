@@ -5,7 +5,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-    url(r'^$', 'qa.views.page'),
+    url(r'^$', 'news.views.page'),
     url(r'^popular/$', 'qa.views.popular'), 
     url(r'^login/', 'qa.views.dolog'),
     url(r'^signup/', 'qa.views.signup'),

@@ -20,8 +20,31 @@ from qa.forms import AskForm, AnswerForm, LoginForm, SignupForm
 from news.forms import StarForm
 from news.models import Star, News
 from django.http import HttpResponseRedirect
+from xml.dom.minidom import *
+import urllib2
+import requests
+import urllib
+import json
+import HTMLParser
+from bs4 import BeautifulSoup
+def getPage(starName):
+    url="http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q="+starName
+    r = requests.get(url)
+    h = HTMLParser.HTMLParser()
+    return BeautifulSoup(h.unescape(r.text)).text
 def cron(request):
-    return HttpResponse("Cron")
+    stars= Star.objects.all()
+    resString = "1) ";
+    for star in stars:
+        res = json.loads(getPage(star.name))
+	for item in res['responseData']['results']:
+		news = News()
+		news.header =BeautifulSoup(item['title']).text
+		news.text = BeautifulSoup(item['content']).text
+		news.url = BeautifulSoup(item['url']).text
+		news.star = star
+		news.save()
+    return HttpResponse("OK")
 
 from django.views.decorators.http import require_http_methods
 from django.contrib.auth.decorators import login_required
@@ -63,18 +86,16 @@ def star(request, *args, **kwargs):
         print key
       #  question=Question.objects.get(pk=key)
 	star = Star.objects.get(pk=key)
+	newses = News.objects.filter(star_id=key)
        # ans = Answer.objects.filter(question_id=key)        
        # form = AnswerForm(initial={'question':key})
     except ValueError, Question.DoesNotExist:
         return HttpResponseNotFound('<h1>No Page Here</h1>') 
  
-    return HttpResponse(star)
- 
-#    return render(request, 'qa/one_question.html', {
- #       'q':question,
-  #       'a':ans,
-   #      'form':form,
-   # })
+    return render(request, 'news/star.html', {
+       'star':star,
+       'newses':newses
+    })
 def news(request, *args, **kwargs):
     try:
         key = int(args[0])
@@ -100,12 +121,12 @@ def newnews(request):
 
 def page(request):
     numPage = request.GET.get('page')
-    questions= Question.objects.all()
+    questions= Star.objects.all()
     page, paginator = paginate(request, questions)
     print page  
   #  return HttpResponse(numPage)
-    return render(request, 'qa/question_by_author.html', {
-        'questions': page.object_list,
+    return render(request, 'news/page.html', {
+        'stars': page.object_list,
         'paginator':paginator,
         'page' : page,   
    })
