@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
    
      'qa',
+     'news',
 #     'autofixture',
 #     'twitter_bootstrap',
 )

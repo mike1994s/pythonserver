@@ -19,6 +19,4 @@ urlpatterns = patterns('',
     url(r'^news/(\d+)/$', 'news.views.news'),
     url(r'^popnews/', 'news.views.popnews'),
     url(r'^newnews/$', 'news.views.newnews'),
-    url(r'^cron/$', 'news.views.cron'),
-    url(r'^addstar/$', 'news.views.addstar'),
 )

@@ -1,0 +1,7 @@
+[2016-03-26 12:22:49 +0000] [21681] [INFO] Starting gunicorn 19.4.5
+[2016-03-26 12:22:49 +0000] [21681] [INFO] Listening at: http://0.0.0.0:8000 (21681)
+[2016-03-26 12:22:49 +0000] [21681] [INFO] Using worker: sync
+[2016-03-26 12:22:49 +0000] [21686] [INFO] Booting worker with pid: 21686
+[2016-03-26 12:23:16 +0000] [21681] [INFO] Handling signal: int
+[2016-03-26 08:23:16 +0000] [21686] [INFO] Worker exiting (pid: 21686)
+[2016-03-26 12:23:16 +0000] [21681] [INFO] Shutting down: Master
