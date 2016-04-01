@@ -27,24 +27,33 @@ import urllib
 import json
 import HTMLParser
 from bs4 import BeautifulSoup
+from django_feedparser.settings import *
+import feedparser
 def getPage(starName):
     url="http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q="+starName
     r = requests.get(url)
     h = HTMLParser.HTMLParser()
     return BeautifulSoup(h.unescape(r.text)).text
 def cron(request):
-    stars= Star.objects.all()
-    resString = "1) ";
-    for star in stars:
-        res = json.loads(getPage(star.name))
-	for item in res['responseData']['results']:
-		news = News()
-		news.header =BeautifulSoup(item['title']).text
-		news.text = BeautifulSoup(item['content']).text
-		news.url = BeautifulSoup(item['url']).text
-		news.star = star
-		news.save()
-    return HttpResponse("OK")
+	stars= Star.objects.all()
+  #  resString = "1) ";
+	for star in stars:
+
+		d =feedparser.parse("https://news.google.com/news?q="+star.name+"&output=rss")
+		print [field for field in d]
+		print d['items']
+  #  stars= Star.objects.all()
+  #  resString = "1) ";
+  #  for star in stars:
+  #      res = json.loads(getPage(star.name))
+#	for item in res['responseData']['results']:
+#		news = News()
+#		news.header =BeautifulSoup(item['title']).text
+#		news.text = BeautifulSoup(item['content']).text
+#		news.url = BeautifulSoup(item['url']).text
+#		news.star = star
+#		news.save()
+	return HttpResponse("OK")
 
 from django.views.decorators.http import require_http_methods
 from django.contrib.auth.decorators import login_required
@@ -162,8 +171,9 @@ def popular(request):
    })
 
 def index(request):
-    
-    template = loader.get_template('qa/index.html')
+   # path = 'angular/index.html'
+    path = 'react/index.html'
+    template = loader.get_template(path)
     context = Context();
     return HttpResponse(template.render(context))
 # Create your views here.

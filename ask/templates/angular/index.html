@@ -1,0 +1,27 @@
+{% load staticfiles %}
+
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+<body ng-app="{% block ng_app %}example.app.static{% endblock %}">
+<div class="content" ng-controller="{% block ng_controller %}AppController{% endblock %}">{% block content %}
+{% verbatim %}
+    <div class="panel" ng-repeat="post in posts">
+        <div class="panel-heading clearfix">
+            <h3 class="panel-title">{{ post.name }}</h3>
+             <div class="panel" ng-repeat="news in post.newses">
+			<p> {{ news.header }} </p>
+			<p> {{ news.text }} </p>
+			<a ng-href="{{news.url}}">{{ news.header }}</a>
+		</div>
+        </div>
+    </div>
+{% endverbatim %}
+{% endblock %}</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.js"></script>
+<script src="{% static "resources.js" %}"></script>
+<script src="{% static "script.js" %}"></script>
+</body>
+</html>

@@ -36,7 +36,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-   
+     'django_feedparser',
+     'djng',   
      'qa',
      'news',
      'rest_framework',    
@@ -75,7 +76,8 @@ DATABASES = {
  #   }
       'default': {
         'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'ask_',
+      #  'NAME': 'ask_',
+        'NAME': 'news_and_stars',
         'USER': 'root',
         'PASSWORD': '123123',
         'HOST': 'localhost',   # Or an IP Address that your DB is hosted on

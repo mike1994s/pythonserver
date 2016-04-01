@@ -14,9 +14,19 @@
 	<nav><ul class="pagination">
 		{% for p in paginator.page_range %}
 	               {%  for q in stars %}
-				<p>{{q.name  }} </p>
-				<a href="/star/{{ q.pk }}">{{ q.pk }}</a>
+		<div class="row">
+		<div class="col-md-4">	
+		 <a href="/star/{{ q.pk }}">	<img src="{{q.photo }}" alt="{{ q.name }}" width="150" height="170"  class="img-circle"></img>
+			</a>
+			</div><div class="col-md-8">
+				<p  class="lead">{{ q.name }} </p>
+			</div>
+			</div>
+			<br/>
 			{% endfor %}
+		<div class="row">&nbsp;</div>
+		<div class="row">&nbsp;</div>
+		<div class="row">&nbsp;</div>
 		{% if p.number == page.number %}
 			<li class="active">
 		{% else %}
