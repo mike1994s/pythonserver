@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 class StarForm(forms.Form):
 	name = forms.CharField(max_length=255)
 	photo = forms.CharField(max_length=255)
+	summary = forms.CharField(max_length=255)
 	def clean_title(self):
 		name = self.cleaned_data['name']
 		return name
@@ -12,7 +13,8 @@ class StarForm(forms.Form):
 		#question =Question(**self.cleaned_data)
 		star = Star(
 				name=self.cleaned_data['name'],
-				photo=self.cleaned_data['photo']
+				photo=self.cleaned_data['photo'],
+				summary=self.cleaned_data['summary']
 		)
 		star.save()			
 		return star

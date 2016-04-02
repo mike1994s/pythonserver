@@ -6,6 +6,7 @@ class Star(models.Model):
 	added_at = models.DateTimeField(auto_now_add=True)
 	rating = models.IntegerField(default=0)
 	photo  = models.CharField(max_length=255)
+	summary= models.CharField(max_length=255,default="")
 #	author = models.ForeignKey(User, db_constraint=False)
 #	author = models.IntegerField(default=1)
 #	likes  = models.ManyToManyField(User, related_name='likes_set')
