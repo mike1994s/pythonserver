@@ -1,6 +1,6 @@
 {% extends "news/mdlbase.html" %}
 
-{% block title %}{{star.name  }}{% endblock %}
+{% block title %}{% endblock %}
 
 {% block content %}
 <div class="row">&nbsp;</div>

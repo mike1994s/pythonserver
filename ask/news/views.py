@@ -30,6 +30,8 @@ from bs4 import BeautifulSoup
 from django_feedparser.settings import *
 import feedparser
 import pprint
+from urllib import urlopen
+from pprint import pprint
 def getPage(starName):
     url="http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q="+starName
     r = requests.get(url)
@@ -39,11 +41,18 @@ def cron(request):
 	stars= Star.objects.all()
   #  resString = "1) ";
 	for star in stars:
-
-		d =feedparser.parse("https://news.google.com/news?q="+star.name+"&output=rss")
-		print [field for field in d]
-		#print d['items']
-		print [entry.title for entry in d['entries']]
+		f = { 'q' : star.name, 'hl' : "ru", 'output' : 'rss'}
+		params = urllib.urlencode(f)
+		d = feedparser.parse('https://news.google.com/news?'+params)
+		for field in d['entries']:
+			news = News()
+			news.header = field.title
+			news.text =  field.title
+			news.url = field.title_detail.base
+			news.star = star
+			news.save()
+		#	print field.title
+	return HttpResponse("ok")
   #  stars= Star.objects.all()
   #  resString = "1) ";
   #  for star in stars:
