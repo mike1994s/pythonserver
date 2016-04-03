@@ -1,9 +1,9 @@
- {% extends "mdlbase.html" %}
+{% extends "mdlbase.html" %}
 
-{% block title %}Create New{% endblock %}
+{% block title %}Login{% endblock %}
 
 {% block content %}
-	<div class="row"> &nbsp;</div> 
+		<div class="row"> &nbsp;</div> 
 <div class="row"> &nbsp;</div> 
 <div class="row"> &nbsp;</div> 
 	<div class="container" >
@@ -11,7 +11,7 @@
 	  {% for e in form.non_field_errors %}
 		<div class="alert alert-danger">{{ e }}</div>
 		{% endfor %}
-		<form class="form-horizontal" method="post" action="/addstar/">
+		<form class="form-horizontal" method="post" action="/signup/">
 		{% csrf_token %}
 		<fieldset>
 		{% for field in form %}
@@ -22,12 +22,10 @@
 		</div>
 		{% endfor %}
 		</fieldset>
-		<div class="row"> &nbsp;</div> 
 		<div class="form-actions">
-		<button type="submit" class="btn btn-primary">Сохранить</button>
+		<button type="submit" class="btn btn-primary">
+		Сохранить</button>
 		</div>
 		</form>
-	</div>
-	
 	</div>
 {% endblock %}

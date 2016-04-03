@@ -630,3 +630,24 @@ ImproperlyConfigured: Application labels aren't unique, duplicates: staticfiles
 [2016-04-04 00:17:10 +0000] [12434] [INFO] Handling signal: int
 [2016-04-03 20:17:10 +0000] [12439] [INFO] Worker exiting (pid: 12439)
 [2016-04-04 00:17:10 +0000] [12434] [INFO] Shutting down: Master
+[2016-04-04 01:50:05 +0000] [20855] [INFO] Starting gunicorn 19.4.5
+[2016-04-04 01:50:05 +0000] [20855] [INFO] Listening at: http://0.0.0.0:8000 (20855)
+[2016-04-04 01:50:05 +0000] [20855] [INFO] Using worker: sync
+[2016-04-04 01:50:05 +0000] [20860] [INFO] Booting worker with pid: 20860
+[2016-04-04 02:16:51 +0000] [20855] [INFO] Handling signal: int
+[2016-04-03 22:16:51 +0000] [20860] [INFO] Worker exiting (pid: 20860)
+[2016-04-04 02:16:51 +0000] [20855] [INFO] Shutting down: Master
+[2016-04-04 02:17:48 +0000] [897] [INFO] Starting gunicorn 19.4.5
+[2016-04-04 02:17:48 +0000] [897] [INFO] Listening at: http://0.0.0.0:8000 (897)
+[2016-04-04 02:17:48 +0000] [897] [INFO] Using worker: sync
+[2016-04-04 02:17:48 +0000] [902] [INFO] Booting worker with pid: 902
+[2016-04-04 02:18:08 +0000] [897] [INFO] Handling signal: int
+[2016-04-03 22:18:08 +0000] [902] [INFO] Worker exiting (pid: 902)
+[2016-04-04 02:18:08 +0000] [897] [INFO] Shutting down: Master
+[2016-04-04 02:18:09 +0000] [1307] [INFO] Starting gunicorn 19.4.5
+[2016-04-04 02:18:09 +0000] [1307] [INFO] Listening at: http://0.0.0.0:8000 (1307)
+[2016-04-04 02:18:09 +0000] [1307] [INFO] Using worker: sync
+[2016-04-04 02:18:09 +0000] [1312] [INFO] Booting worker with pid: 1312
+[2016-04-04 02:20:09 +0000] [1307] [INFO] Handling signal: int
+[2016-04-03 22:20:09 +0000] [1312] [INFO] Worker exiting (pid: 1312)
+[2016-04-04 02:20:09 +0000] [1307] [INFO] Shutting down: Master

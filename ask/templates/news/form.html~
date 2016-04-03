@@ -1,20 +1,17 @@
-<html>
-  <head>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+ {% extends "mdlbase.html" %}
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+{% block title %}Create New{% endblock %}
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-
-</head>
-<body>
+{% block content %}
+	<div class="row"> &nbsp;</div> 
+<div class="row"> &nbsp;</div> 
+<div class="row"> &nbsp;</div> 
 	<div class="container" >
+	<div class="center mdl-card mdl-shadow--2dp">
 	  {% for e in form.non_field_errors %}
 		<div class="alert alert-danger">{{ e }}</div>
 		{% endfor %}
-		<form class="form-horizontal" method="post" action="/ask/">
+		<form class="form-horizontal" method="post" action="/addstar/">
 		{% csrf_token %}
 		<fieldset>
 		{% for field in form %}
@@ -25,11 +22,12 @@
 		</div>
 		{% endfor %}
 		</fieldset>
+		<div class="row"> &nbsp;</div> 
 		<div class="form-actions">
-		<button type="submit" class="btn btn-primary">
-		Сохранить</button>
+		<button type="submit" class="btn btn-primary">Сохранить</button>
 		</div>
 		</form>
 	</div>
-</body>	
-</html>
+	
+	</div>
+{% endblock %}

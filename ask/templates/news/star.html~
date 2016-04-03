@@ -1,16 +1,39 @@
-{% extends "news/mdlbase.html" %}
+{% extends "mdlbase.html" %}
 
-{% block title %}{% endblock %}
+{% block title %}{{star.name  }}{% endblock %}
 
 {% block content %}
 <div class="row">&nbsp;</div>
+	
 	<div class="container" >
-	<h1>{{star.name  }} </h1>
-	<img src="{{ star.photo }}" class="img-rounded" width="400" height="350"></img>
-        <br/>
+	<div class="center mdl-card mdl-shadow--2dp demo-card-square">
+      <div class="mdl-card__title mdl-card--expand">
+        <img src="{{ star.photo }}" class="img-rounded" width="180" height="200"></img>
+      </div>
+      <div class="mdl-card__supporting-text">
+       {{star.name  }} 
+      </div>
+      <div class="mdl-card__actions mdl-card--border">
+         {{star.summary  }} 
+      </div>
+    </div>
+  <ul class="mdl-list">
         {% for news in newses %}
-    	<p> {{ news.text }}</p>
-	<a href="{{ news.url }}">{{ news.header }} </a>
+	 <li class="mdl-list__item mdl-list__item--three-line">
+	 <span class="mdl-list__item-primary-content">
+     
+      <span>{{news.header }}</span>
+      <span class="mdl-list__item-text-body">
+      {{news.text }}
+      </span>
+    </span>
+    <span class="mdl-list__item-secondary-content">
+      <a class="mdl-list__item-secondary-action" href="{{ news.url }}"><i class="material-icons">star</i></a>
+    </span>
+
+    	  
+	<a class="mdl-list__item-secondary-action" href="{{ news.url }}"><i class="material-icons">star</i></a>
+ </li>
         {% endfor %}
-</div>
+</ul>
 {% endblock %}

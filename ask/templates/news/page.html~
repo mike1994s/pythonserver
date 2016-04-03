@@ -1,4 +1,4 @@
-{% extends "news/mdlbase.html" %}
+{% extends "mdlbase.html" %}
 
 {% block title %}All Stars{% endblock %}
 
