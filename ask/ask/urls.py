@@ -20,7 +20,7 @@ class StarSerializer(serializers.ModelSerializer):
        
     class Meta:
         model = Star
-        fields = ('name','rating', 'newses')
+        fields = ('name','rating', 'newses', 'photo')
 
 class StarViewSet(viewsets.ModelViewSet):
     queryset = Star.objects.all()
