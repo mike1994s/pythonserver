@@ -1,10 +1,32 @@
 {% extends "mdlbase.html" %}
 
+{% block up %} 
+<link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+      <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+{% endblock %}
 {% block title %}All Stars{% endblock %}
 
 {% block content %}
-	<div class="row">&nbsp;</div>
+
+<div class="row">&nbsp;</div>
 	<div class="container" >
+<form action="/search">
+  	{% csrf_token %}
+	<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+    <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+      <i class="material-icons">search</i>
+    </label>
+    <div class="mdl-textfield__expandable-holder">
+      <input class="mdl-textfield__input" type="text" id="search" name="search">
+      <label class="mdl-textfield__label" for="sample-expandable">Expandable Input</label>
+    </div>
+  </div>
+</form>
+	<script>
+		var data = [];
+	</script>
 		{% for p in paginator.page_range %}
 		<div class="row">
 	               {%  for q in stars %}
@@ -16,6 +38,9 @@
   </div>
   <div class="mdl-card__supporting-text">
 	<h4>
+	<script>
+	data.push("{{q.name}}");
+	</script>
     {{ q.name }}
 	</h4>
 	<p>
@@ -30,6 +55,16 @@
 </div>
 </div>
 		{% endfor %}
+	   <script>
+         $(function() {
+            var availableTutorials = data;
+            $("#search").autocomplete({
+               source: availableTutorials,
+               autoFocus:true
+            });
+         });
+      </script>
+
 	</div>
 		<div class="row text-center">
  	    

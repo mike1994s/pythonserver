@@ -151,6 +151,23 @@ def page(request):
         'page' : page,   
    })
 
+def search(request):
+	if request.GET.get('search'):
+		q = request.GET.get('search')
+		print (q)
+		questions= Star.objects.filter(name__contains=q)
+		print (questions)
+		if len(questions) == 0:
+			return redirect('news.views.page')
+		page, paginator = paginate(request, questions)
+		return render(request, 'news/page.html', {
+        		'stars': page.object_list,
+       			'paginator':paginator,
+        		'page' : page,
+   		})
+	else:
+		return redirect('news.views.page')
+
 def paginate(request, qs):
     try:
          limit = int(request.GET.get('limit', 10))
